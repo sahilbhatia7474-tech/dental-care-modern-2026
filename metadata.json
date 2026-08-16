@@ -1,0 +1,6 @@
+{
+  "name": "Dental Care — Modern Dentistry",
+  "description": "Modern dental care with personalized treatments, AI-powered patient assistance, easy appointment booking, and compassionate care for a healthier smile.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
