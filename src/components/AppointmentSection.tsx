@@ -145,16 +145,17 @@ export const AppointmentSection: React.FC<AppointmentSectionProps> = ({
   };
 
   return (
-    <section id="appointment" className="mx-auto max-w-5xl px-5 pb-24 sm:px-8 relative">
+    <section id="appointment" className="w-full max-w-[100vw] overflow-x-hidden pb-24 relative">
+      <div className="mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8">
       
-      {/* Background container with glow */}
-      <div className="relative overflow-hidden rounded-[2.2rem] border border-orange-400/25 bg-gradient-to-br from-orange-500/15 via-white/[0.04] to-[#120B19] p-6 shadow-glow sm:p-10 backdrop-blur-xl">
+        {/* Background container with glow */}
+        <div className="relative overflow-hidden rounded-[2.2rem] border border-orange-400/25 bg-gradient-to-br from-orange-500/15 via-white/[0.04] to-[#120B19] p-6 shadow-glow sm:p-10 backdrop-blur-xl">
 
-        <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-orange-500/20 blur-3xl pointer-events-none"></div>
+          <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-orange-500/20 blur-3xl pointer-events-none"></div>
 
-        {/* Tab switchers: Book vs Lookup */}
-        <div className="relative z-10 flex items-center justify-between mb-8 border-b border-white/10 pb-4">
-          <div className="flex gap-2">
+          {/* Tab switchers: Book vs Lookup */}
+          <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 mb-8 border-b border-white/10 pb-4">
+          <div className="flex flex-wrap gap-2">
             <button
               onClick={() => {
                 setActiveTab('book');
@@ -410,43 +411,57 @@ export const AppointmentSection: React.FC<AppointmentSectionProps> = ({
                     </div>
 
                     {/* Service Selection */}
-                    <div>
-                      <label className="text-[11px] font-bold uppercase tracking-wider text-white/40 block mb-1">
+                    <div className="min-w-0 w-full">
+                      <label className="text-[11px] font-bold uppercase tracking-wider text-white/40 block mb-1 truncate">
                         Select Dental Procedure / Concern *
                       </label>
-                      <select
-                        value={serviceName}
-                        onChange={(e) => setServiceName(e.target.value)}
-                        className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3.5 text-sm text-white outline-none focus:border-orange-400"
-                      >
-                        <option value="General checkup">General checkup & Routine Cleaning</option>
-                        <option value="Cosmetic dentistry">Cosmetic Dentistry / Teeth Whitening / Veneers</option>
-                        <option value="Dental implants">Dental Implants & 3D Restorations</option>
-                        <option value="Orthodontic Care">Orthodontic Care & Clear Aligners</option>
-                        <option value="Emergency Care">Emergency Same-Day Pain Relief</option>
-                        <option value="Cavity Filling / Composite">Cavity Filling / Composite Bonding</option>
-                        <option value="Preventive Gum Therapy">Preventive Periodontal & Gum Therapy</option>
-                        <option value="Other Consultation">Other / General Consultation</option>
-                      </select>
+                      <div className="relative min-w-0 w-full">
+                        <select
+                          value={serviceName}
+                          onChange={(e) => setServiceName(e.target.value)}
+                          className="w-full truncate rounded-2xl border border-white/10 bg-[#170E1E] px-4 py-3.5 pr-9 text-xs sm:text-sm text-white outline-none focus:border-orange-400 appearance-none cursor-pointer"
+                        >
+                          <option value="General checkup" className="bg-[#170E1E] text-white">General checkup & Routine Cleaning</option>
+                          <option value="Cosmetic dentistry" className="bg-[#170E1E] text-white">Cosmetic Dentistry / Teeth Whitening / Veneers</option>
+                          <option value="Dental implants" className="bg-[#170E1E] text-white">Dental Implants & 3D Restorations</option>
+                          <option value="Orthodontic Care" className="bg-[#170E1E] text-white">Orthodontic Care & Clear Aligners</option>
+                          <option value="Emergency Care" className="bg-[#170E1E] text-white">Emergency Same-Day Pain Relief</option>
+                          <option value="Cavity Filling / Composite" className="bg-[#170E1E] text-white">Cavity Filling / Composite Bonding</option>
+                          <option value="Preventive Gum Therapy" className="bg-[#170E1E] text-white">Preventive Periodontal & Gum Therapy</option>
+                          <option value="Other Consultation" className="bg-[#170E1E] text-white">Other / General Consultation</option>
+                        </select>
+                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3.5 text-white/50">
+                          <svg className="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                            <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+                          </svg>
+                        </div>
+                      </div>
                     </div>
 
                     {/* Preferred Doctor */}
-                    <div>
-                      <label className="text-[11px] font-bold uppercase tracking-wider text-white/40 block mb-1">
+                    <div className="min-w-0 w-full">
+                      <label className="text-[11px] font-bold uppercase tracking-wider text-white/40 block mb-1 truncate">
                         Preferred Specialist
                       </label>
-                      <select
-                        value={doctorName}
-                        onChange={(e) => setDoctorName(e.target.value)}
-                        className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-xs sm:text-sm text-white outline-none focus:border-orange-400"
-                      >
-                        <option value="First Available Specialist">First Available Specialist (Recommended for fastest slot)</option>
-                        {CLINIC_DOCTORS.map((doc) => (
-                          <option key={doc.id} value={doc.name}>
-                            {doc.name} — {doc.specialty}
-                          </option>
-                        ))}
-                      </select>
+                      <div className="relative min-w-0 w-full">
+                        <select
+                          value={doctorName}
+                          onChange={(e) => setDoctorName(e.target.value)}
+                          className="w-full truncate rounded-2xl border border-white/10 bg-[#170E1E] px-4 py-3.5 pr-9 text-xs sm:text-sm text-white outline-none focus:border-orange-400 appearance-none cursor-pointer"
+                        >
+                          <option value="First Available Specialist" className="bg-[#170E1E] text-white">First Available Specialist (Recommended for fastest slot)</option>
+                          {CLINIC_DOCTORS.map((doc) => (
+                            <option key={doc.id} value={doc.name} className="bg-[#170E1E] text-white">
+                              {doc.name} — {doc.specialty}
+                            </option>
+                          ))}
+                        </select>
+                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3.5 text-white/50">
+                          <svg className="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                            <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+                          </svg>
+                        </div>
+                      </div>
                     </div>
 
                     {/* Date & Time Slot */}
@@ -620,6 +635,7 @@ export const AppointmentSection: React.FC<AppointmentSectionProps> = ({
           </div>
         )}
 
+        </div>
       </div>
     </section>
   );

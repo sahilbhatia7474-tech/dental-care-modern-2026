@@ -57,11 +57,14 @@ export interface ChatMessage {
 export interface ReviewItem {
   id: string;
   author: string;
+  location?: string;
+  avatarUrl?: string;
   rating: number;
   date: string;
   service: string;
   comment: string;
   tag: string;
+  verifiedGoogle?: boolean;
 }
 
 export interface SymptomResult {

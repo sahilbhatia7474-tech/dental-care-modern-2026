@@ -77,79 +77,94 @@ export const CLINIC_SERVICES: DentalService[] = [
 
 export const CLINIC_DOCTORS: Doctor[] = [
   {
-    id: 'dr-sarah-chen',
-    name: 'Dr. Sarah Chen, DDS',
-    title: 'Lead Cosmetic & Restorative Dentist',
-    specialty: 'Aesthetic Smile Design & Porcelain Veneers',
-    experienceYears: 14,
-    availableDays: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
-    bio: 'Fellow of the American Academy of Cosmetic Dentistry. Passionate about gentle, anxiety-free dentistry.'
+    id: 'dr-sahil',
+    name: 'Dr. Sahil Bhatia, BDS, MDS',
+    title: 'Lead Dental Surgeon & Implantologist',
+    specialty: '3D Guided Implants, Cosmetic Smile Design & Emergency Care',
+    experienceYears: 12,
+    availableDays: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+    bio: 'Specialist in painless dentistry, 3D computer-guided implants, laser dentistry, and modern aesthetic smile design in Delhi.'
   },
   {
-    id: 'dr-marcus-vance',
-    name: 'Dr. Marcus Vance, DMD, MS',
-    title: 'Board-Certified Oral Surgeon & Implantologist',
-    specialty: 'Dental Implants, Bone Grafting & Sedation',
-    experienceYears: 16,
-    availableDays: ['Mon', 'Wed', 'Thu', 'Sat'],
-    bio: 'Specialist in minimally invasive 3D guided implant surgeries and emergency trauma restorations.'
+    id: 'dr-ananya-sharma',
+    name: 'Dr. Ananya Sharma, BDS, MDS (Ortho)',
+    title: 'Senior Orthodontist & Clear Aligner Specialist',
+    specialty: 'Clear Aligners (Invisalign®) & Aesthetic Braces',
+    experienceYears: 10,
+    availableDays: ['Mon', 'Wed', 'Thu', 'Fri', 'Sat'],
+    bio: 'Certified Clear Aligner provider dedicated to gentle, predictable smile straightening for teens and adults.'
   },
   {
-    id: 'dr-priya-patel',
-    name: 'Dr. Priya Patel, BDS, MS',
-    title: 'Orthodontist & Preventive Care Specialist',
-    specialty: 'Clear Aligners & Pediatric Dental Care',
+    id: 'dr-rohit-verma',
+    name: 'Dr. Rohit Verma, BDS, MDS (Endo)',
+    title: 'Microscopic Endodontist & Restorative Specialist',
+    specialty: 'Single-Sitting Painless RCT & Laser Gum Therapy',
     experienceYears: 11,
-    availableDays: ['Tue', 'Wed', 'Fri', 'Sat'],
-    bio: 'Dedicated to helping patients of all ages achieve balanced, healthy smiles with modern clear aligners.'
+    availableDays: ['Tue', 'Wed', 'Thu', 'Fri', 'Sun'],
+    bio: 'Expert in rotary single-visit root canal treatments with digital apex locators and ultrasonic disinfection.'
   }
 ];
 
 export const CLINIC_REVIEWS: ReviewItem[] = [
   {
     id: 'r1',
-    author: 'Priya M.',
+    author: 'Rohan Sharma',
+    location: 'South Delhi, New Delhi',
+    avatarUrl: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=256&q=80',
     rating: 5,
-    date: '2 days ago',
-    service: 'Cosmetic Veneers',
-    comment: 'The entire experience felt calm and professional. Dr. Sarah Chen explained every detail of my digital smile preview. My new smile looks completely natural!',
-    tag: 'Cosmetic'
+    date: '3 days ago',
+    service: 'Laser Teeth Whitening & Veneers',
+    comment: 'Dr. Sahil and the entire clinic team in Delhi are unbelievable! I did the 1-hour laser whitening and composite bonding before my wedding. The results look so natural and bright without any sensitivity. 5-star experience from start to finish!',
+    tag: 'Cosmetic',
+    verifiedGoogle: true
   },
   {
     id: 'r2',
-    author: 'Rahul K.',
+    author: 'Ananya Verma',
+    location: 'Greater Kailash, Delhi',
+    avatarUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=256&q=80',
     rating: 5,
     date: '1 week ago',
-    service: 'Same-Day Emergency',
-    comment: 'I had been avoiding the dentist for years due to anxiety. When an old molar cracked on a Saturday morning, their same-day team had me out of pain within an hour with zero stress.',
-    tag: 'Emergency'
+    service: 'Custom Clear Aligners',
+    comment: 'I was hesitant about traditional braces in my 20s. Dr. Sahil mapped my teeth with the 3D digital scanner in under 5 minutes without messy impression trays. 6 months into clear aligners and my smile has completely transformed. Highly recommended in Delhi!',
+    tag: 'Orthodontics',
+    verifiedGoogle: true
   },
   {
     id: 'r3',
-    author: 'Ananya S.',
+    author: 'Dr. Vikram Malhotra',
+    location: 'Connaught Place, Delhi',
+    avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=256&q=80',
     rating: 5,
     date: '2 weeks ago',
-    service: 'Clear Aligners',
-    comment: 'From online booking to the monthly check-ins, everything was smooth, clear, and genuinely caring. The 3D scan took less than 5 minutes without goopy molds!',
-    tag: 'Orthodontics'
+    service: '3D Guided Dental Implant',
+    comment: 'As a surgeon myself, I appreciate precision. Dr. Sahil placed my titanium molar implant using 3D guided computer planning. The procedure was genuinely painless, healed smoothly in days, and feels 100% like my natural tooth.',
+    tag: 'Implants',
+    verifiedGoogle: true
   },
   {
     id: 'r4',
-    author: 'David L.',
+    author: 'Pooja Kapoor',
+    location: 'Dwarka, New Delhi',
+    avatarUrl: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=256&q=80',
     rating: 5,
     date: '3 weeks ago',
-    service: 'Single Tooth Implant',
-    comment: 'Dr. Vance placed my implant with guided 3D technology. I felt no discomfort during the procedure and healed very quickly. Truly world-class clinic standards.',
-    tag: 'Implants'
+    service: 'Emergency Cracked Tooth & RCT',
+    comment: 'Called their emergency line at +91 9953239674 on a Saturday morning when my tooth cracked during breakfast. They gave me a priority same-day slot within 45 minutes and relieved the acute pain immediately. Lifesavers!',
+    tag: 'Emergency',
+    verifiedGoogle: true
   },
   {
     id: 'r5',
-    author: 'Elena R.',
+    author: 'Aditya Mehra',
+    location: 'Saket, South Delhi',
+    avatarUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=256&q=80',
     rating: 5,
     date: '1 month ago',
-    service: 'Routine Cleaning & Checkup',
-    comment: 'Warm atmosphere, modern equipment, and friendly staff. The ultrasonic cleaning was the most gentle I have ever experienced. Highly recommend DENTAL+.',
-    tag: 'General'
+    service: 'Ultrasonic Cleaning & Routine Scan',
+    comment: 'Cleanest and most modern clinic I have visited in Delhi. The ultrasonic cleaning was super gentle, zero gum pain, and upfront transparent pricing with zero surprise charges.',
+    tag: 'General',
+    verifiedGoogle: true
   }
 ];
 

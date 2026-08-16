@@ -13,8 +13,8 @@ export const MobileBottomBar: React.FC<MobileBottomBarProps> = ({
   onBookVisit,
 }) => {
   return (
-    <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 p-3 pb-4 bg-[#0E0A14]/92 backdrop-blur-xl border-t border-orange-400/30 shadow-[0_-8px_30px_rgba(255,138,61,0.18)]">
-      <div className="flex items-center justify-between gap-2 max-w-md mx-auto">
+    <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 p-3 pb-4 bg-[#0E0A14]/92 backdrop-blur-xl border-t border-orange-400/30 shadow-[0_-8px_30px_rgba(255,138,61,0.18)] w-full max-w-[100vw]">
+      <div className="flex items-center justify-between gap-2 max-w-md mx-auto w-full">
         
         {/* 1. AI Chat Button */}
         <button

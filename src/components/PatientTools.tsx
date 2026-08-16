@@ -168,17 +168,18 @@ export const PatientTools: React.FC<PatientToolsProps> = ({
   };
 
   return (
-    <section id="patient-tools" className="mx-auto max-w-7xl px-5 py-24 sm:px-8 relative">
+    <section id="patient-tools" className="w-full max-w-[100vw] overflow-x-hidden py-24 relative">
       
       {/* Glow */}
       <div className="absolute top-1/3 right-10 w-80 h-80 rounded-full bg-orange-500/10 blur-3xl pointer-events-none"></div>
 
-      <div className="text-center max-w-3xl mx-auto">
+      <div className="mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-3xl mx-auto">
         <div className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs font-semibold text-orange-400 border border-orange-400/20 mb-3">
           <Activity className="w-3.5 h-3.5" />
           <span>Interactive Patient Portal Tools</span>
         </div>
-        <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl text-white">
+        <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl text-white break-words">
           Smart tools to empower your smile.
         </h2>
         <p className="mt-4 text-base sm:text-lg text-white/60">
@@ -186,12 +187,12 @@ export const PatientTools: React.FC<PatientToolsProps> = ({
         </p>
 
         {/* Tab Navigator */}
-        <div className="mt-8 inline-flex p-1.5 rounded-2xl glass border border-white/10 shadow-lg">
+        <div className="mt-8 flex flex-wrap sm:inline-flex justify-center gap-1.5 p-1.5 rounded-2xl glass border border-white/15 shadow-xl max-w-full backdrop-blur-xl">
           <button
             onClick={() => setActiveTool('symptom')}
-            className={`flex items-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-bold transition ${
+            className={`flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-bold transition cursor-pointer ${
               activeTool === 'symptom'
-                ? 'orange-gradient text-[#1B0D05] shadow'
+                ? 'tab-3d-active'
                 : 'text-white/65 hover:text-white'
             }`}
           >
@@ -201,9 +202,9 @@ export const PatientTools: React.FC<PatientToolsProps> = ({
 
           <button
             onClick={() => setActiveTool('pricing')}
-            className={`flex items-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-bold transition ${
+            className={`flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-bold transition cursor-pointer ${
               activeTool === 'pricing'
-                ? 'orange-gradient text-[#1B0D05] shadow'
+                ? 'tab-3d-active'
                 : 'text-white/65 hover:text-white'
             }`}
           >
@@ -213,9 +214,9 @@ export const PatientTools: React.FC<PatientToolsProps> = ({
 
           <button
             onClick={() => setActiveTool('firstaid')}
-            className={`flex items-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-bold transition ${
+            className={`flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-bold transition cursor-pointer ${
               activeTool === 'firstaid'
-                ? 'orange-gradient text-[#1B0D05] shadow'
+                ? 'tab-3d-active'
                 : 'text-white/65 hover:text-white'
             }`}
           >
@@ -227,28 +228,37 @@ export const PatientTools: React.FC<PatientToolsProps> = ({
 
       {/* TOOL 1: AI SYMPTOM TRIAGE */}
       {activeTool === 'symptom' && (
-        <div className="mt-12 max-w-4xl mx-auto glass rounded-[2rem] p-6 sm:p-10 border border-white/10 shadow-2xl">
+        <div className="mt-12 max-w-4xl mx-auto gloss-card-3d rounded-[2rem] p-6 sm:p-10 border border-white/15 shadow-2xl relative overflow-hidden">
+          {/* Specular Highlight Strip */}
+          <div className="absolute top-0 inset-x-12 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent"></div>
           <div className="grid gap-8 lg:grid-cols-12">
             
             {/* Quiz inputs (7 cols) */}
-            <div className="lg:col-span-7 space-y-6">
-              <div>
-                <label className="text-xs uppercase font-bold text-white/50 tracking-wider block mb-2">
+            <div className="lg:col-span-7 space-y-6 min-w-0">
+              <div className="min-w-0 w-full">
+                <label className="text-xs uppercase font-bold text-white/50 tracking-wider block mb-2 truncate">
                   1. What is your primary dental concern?
                 </label>
-                <select
-                  value={primaryConcern}
-                  onChange={(e) => setPrimaryConcern(e.target.value)}
-                  className="w-full rounded-2xl border border-white/15 bg-black/40 px-4 py-3.5 text-sm text-white outline-none focus:border-orange-400"
-                >
-                  <option value="Severe or dull toothache">Toothache / Pain in tooth or jaw</option>
-                  <option value="Hot/Cold/Sweet sensitivity">Sharp sensitivity to cold, hot, or sweet</option>
-                  <option value="Chipped, cracked, or broken tooth">Chipped or cracked tooth fragment</option>
-                  <option value="Bleeding or swollen gums">Bleeding, swollen, or tender gums</option>
-                  <option value="Lost filling or crown">Lost filling, crown, or loose bridge</option>
-                  <option value="Wisdom tooth pressure">Wisdom tooth ache / back jaw pressure</option>
-                  <option value="Cosmetic smile upgrade">Cosmetic inquiry (whitening, veneers, gaps)</option>
-                </select>
+                <div className="relative min-w-0 w-full">
+                  <select
+                    value={primaryConcern}
+                    onChange={(e) => setPrimaryConcern(e.target.value)}
+                    className="w-full truncate rounded-2xl border border-white/15 bg-[#170E1E] px-4 py-3.5 pr-9 text-xs sm:text-sm text-white outline-none focus:border-orange-400 appearance-none cursor-pointer"
+                  >
+                    <option value="Severe or dull toothache" className="bg-[#170E1E] text-white">Toothache / Pain in tooth or jaw</option>
+                    <option value="Hot/Cold/Sweet sensitivity" className="bg-[#170E1E] text-white">Sharp sensitivity to cold, hot, or sweet</option>
+                    <option value="Chipped, cracked, or broken tooth" className="bg-[#170E1E] text-white">Chipped or cracked tooth fragment</option>
+                    <option value="Bleeding or swollen gums" className="bg-[#170E1E] text-white">Bleeding, swollen, or tender gums</option>
+                    <option value="Lost filling or crown" className="bg-[#170E1E] text-white">Lost filling, crown, or loose bridge</option>
+                    <option value="Wisdom tooth pressure" className="bg-[#170E1E] text-white">Wisdom tooth ache / back jaw pressure</option>
+                    <option value="Cosmetic smile upgrade" className="bg-[#170E1E] text-white">Cosmetic inquiry (whitening, veneers, gaps)</option>
+                  </select>
+                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3.5 text-white/50">
+                    <svg className="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                      <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+                    </svg>
+                  </div>
+                </div>
               </div>
 
               {/* Pain Scale */}
@@ -285,7 +295,7 @@ export const PatientTools: React.FC<PatientToolsProps> = ({
                 <label className="text-xs uppercase font-bold text-white/50 tracking-wider block mb-2">
                   3. How long have you noticed this?
                 </label>
-                <div className="grid grid-cols-4 gap-2">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                   {['Just today', '1-3 days', '1-2 weeks', '1+ month'].map((dur) => (
                     <button
                       key={dur}
@@ -442,7 +452,9 @@ export const PatientTools: React.FC<PatientToolsProps> = ({
 
       {/* TOOL 2: PRICING & EMI COST CALCULATOR */}
       {activeTool === 'pricing' && (
-        <div className="mt-12 max-w-5xl mx-auto glass rounded-[2rem] p-6 sm:p-10 border border-white/10 shadow-2xl animate-fade-in">
+        <div className="mt-12 max-w-5xl mx-auto gloss-card-3d rounded-[2rem] p-6 sm:p-10 border border-white/15 shadow-2xl animate-fade-in relative overflow-hidden">
+          {/* Top specular highlight */}
+          <div className="absolute top-0 inset-x-12 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent"></div>
           
           {/* Section Subtitle */}
           <div className="mb-6 pb-4 border-b border-white/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
@@ -504,7 +516,7 @@ export const PatientTools: React.FC<PatientToolsProps> = ({
                 <label className="text-xs uppercase font-bold text-white/60 tracking-wider block mb-2">
                   2. Select Coverage / Payment Method
                 </label>
-                <div className="grid grid-cols-3 gap-2">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                   <button
                     onClick={() => setInsurancePlan('ppo')}
                     className={`py-3 px-2.5 text-xs font-bold rounded-xl border transition text-center ${
@@ -667,8 +679,10 @@ export const PatientTools: React.FC<PatientToolsProps> = ({
             {EMERGENCY_FIRST_AID_GUIDES.map((guide) => (
               <div
                 key={guide.id}
-                className="glass rounded-3xl p-6 border border-white/10 flex flex-col justify-between hover:border-orange-400/30 transition"
+                className="gloss-card-3d rounded-3xl p-6 border border-white/15 flex flex-col justify-between hover:border-orange-400/50 transition-all duration-300 relative overflow-hidden shadow-xl"
               >
+                {/* Specular line */}
+                <div className="absolute top-0 inset-x-6 h-px bg-gradient-to-r from-transparent via-white/35 to-transparent"></div>
                 <div>
                   <div className="flex items-center justify-between mb-3">
                     <span className="text-xs font-bold uppercase tracking-wider text-red-400 bg-red-500/10 px-3 py-1 rounded-full border border-red-500/20">
@@ -723,6 +737,7 @@ export const PatientTools: React.FC<PatientToolsProps> = ({
         </div>
       )}
 
+      </div>
     </section>
   );
 };
